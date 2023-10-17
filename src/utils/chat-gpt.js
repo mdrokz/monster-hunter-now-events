@@ -1,5 +1,6 @@
 import { parse } from 'node-html-parser';
 import OpenAI from 'openai';
+import { askHuggingFace } from './ai-utils.js';
 
 export const OPENAI_CHAT_ENDPOINT =
     'https://api.openai.com/v1/chat/completions';
@@ -121,7 +122,8 @@ Ensure the output is valid JSON.
         },
     ];
 
-    const response = await askGPTChat(messages, debug);
+    // const response = await askGPTChat(messages, debug);
+    const response = await askHuggingFace(messages, debug);
     return response ?? { events: [] };
 }
 
